@@ -11,17 +11,11 @@ def fillZero(time):
         time = "0" + str(time)
     return time
 
-def isTimeStopped(timeStop):
-    if timeStop:
-        return False
-    else:
-        return True
-
 def convertSeconds(s):
+    s = s / 1000
     minutes = s // 60
     seconds = s % 60
     return str(fillZero(minutes))+":"+str(fillZero(seconds))
-
 
 
 # Draws sexy text
@@ -36,7 +30,7 @@ def drawText2(word, x, y, color):
     #textFont(font)
     fill(color)
     text(word, x, y)
-    textAlign(LEFT)
+    textAlign(CENTER)
 
 # function to attack with dices
 def roll():

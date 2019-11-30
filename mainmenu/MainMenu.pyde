@@ -16,7 +16,7 @@ timer_load = False
 handleiding_load = False
 
 def setup():
-    size(1920, 1080)
+    fullScreen()
     #size(600, 700)
     global f
     f = createFont('arial',32)
@@ -95,11 +95,10 @@ def draw():
             Handleiding.draw()
         
 # Timer spatie registratie
-def keyTyped():
-    global timeStop
+def keyPressed():
     if current_page == "Timer" and timer_load == True:
-        if key == " ":
-            Timer.timeStop = functions.isTimeStopped(Timer.timeStop)
+        if keyCode == 32:
+            Timer.running = not Timer.running
             
 # mouseclcik registrater    
 def mousePressed():
@@ -146,4 +145,3 @@ def mousePressed():
         if ((x < mouseX < 400) and ( 540 <= mouseY <= 590)):
             rect(x, timedGameplayY, w, h) and fill(0, 100)
             current_page = "Timer"
-    
