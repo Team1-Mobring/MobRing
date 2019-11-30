@@ -110,13 +110,18 @@ def keyPressed():
             if Timer.spatie % 2 == 0:
                 # Even getal, gaat de eerste keer af.
                 Timer.running = not Timer.running
+                if Timer.four_timer: #Als de 4 minute timer aan staat.
+                    Timer.time_left_2 += 15000
             else:
                 # Oneven getal, gaat de tweede keer af.
                 Timer.running_2 = not Timer.running_2
+                if Timer.four_timer:
+                    Timer.time_left += 15000
        
         # "Enter" functie tijdens het typen
         if keyCode == 10 and Timer.typing == True and Timer.step_count < 2:
             Timer.step_count += 1
+           
             
         if Timer.step_count == 0:
             if keyCode == 8:
@@ -181,15 +186,22 @@ def mousePressed():
         if isMouseWithinSpace(630, 765, 200, 100) and Timer.step_count == 2:
             Timer.time_left = 300000
             Timer.time_left_2 = 300000
-            print("It worked")
+            Timer.timer_start = False
+            Timer.four_timer = False
         
         # 20 minute timer button
         if isMouseWithinSpace(1090, 765, 200, 100) and Timer.step_count == 2:
             Timer.time_left = 600000
             Timer.time_left_2 = 600000
-            Timer.timer_start = True
-            print("It worked")
+            Timer.timer_start = False
+            Timer.four_timer = False
             
+        # 4 minute timer button
+        if isMouseWithinSpace(860, 765, 200, 100) and Timer.step_count == 2:
+            Timer.time_left = 120000
+            Timer.time_left_2 = 120000
+            Timer.timer_start = False
+            Timer.four_timer = True        
             
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    

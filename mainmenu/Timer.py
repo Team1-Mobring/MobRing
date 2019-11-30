@@ -4,10 +4,12 @@ import time, functions
 def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
-            step_count, typing
+            step_count, typing, four_timer
     background(240)
     
     rect(100, 200, 100, 200)
+    
+    four_timer = False
     
     typing = True
     step_count = 0
@@ -45,8 +47,10 @@ def draw():
     
     # Timer modes buttons
     fill(200)
+    rect(860, 765, 200, 100) # 4 minutes
     rect(630, 765, 200, 100) # 10 minutes
     rect(1090, 765, 200, 100) # 20 minutes
+    functions.drawText3("4 Mins + 15", 885, 830, 0, 0, 0, 30)
     functions.drawText3("10 Mins", 675, 830, 0, 0, 0, 30)
     functions.drawText3("20 Mins", 1135, 830, 0, 0, 0, 30)
     
@@ -82,6 +86,18 @@ def draw():
         if time_left_2 < 1000:
             running_2 = False
             timer_start = False
+        fill(0, 100, 0)
+        rect(860, 610, 200, 100) # Pauze knop!
+        functions.drawText3("Switch!", 910, 670, 0, 0, 0, 30)
+        functions.drawText3("'Spacebar'", 910, 690, 0, 0, 0, 20)
+        functions.drawText3("Press 'Enter' to pause", 860, 730, 0, 0, 0, 20)
+            
+    # Voor de pauze knop "Enter"       
+    elif step_count == 2:
+        fill(100, 0, 0)
+        rect(860, 610, 200, 100) # Start knop! (Visueel)
+        functions.drawText3("Start!", 910, 670, 0, 0, 0, 30)
+        functions.drawText3("Press 'Enter' to start", 860, 730, 0, 0, 0, 20)
         
     last_millis = millis()
     last_millis_2 = millis()
