@@ -124,8 +124,6 @@ def keyPressed():
             # De naam mag 10 characters lang zijn.
             elif len(Timer.user_input_1) <= 10:
                 Timer.user_input_1 += key
-                testing_text = ("%r" % Timer.user_input_1)
-                print(testing_text)
         
         if Timer.step_count == 1:
             if keyCode == 8:
@@ -135,7 +133,7 @@ def keyPressed():
                 Timer.user_input_2 += key
             
         # "Enter" functie in de timer /is tijdelijk.
-        if keyCode == 10 and Timer.typing == False:
+        if keyCode == 10 and Timer.step_count == 2:
             Timer.timer_start = not Timer.timer_start
 
     # TO exit the program!.
@@ -145,14 +143,17 @@ def keyPressed():
                     
 # mouseclcik registrater    
 def mousePressed():
-    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load
+    global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load, \
+    timer_load
+    def isMouseWithinSpace(x, y, w, h):
+        if x < mouseX < x + w and y < mouseY < y + h:
+            return True
+        else:
+            return False
+        
     if current_page == "Tutorial_Bot" and tutorial_load == True:
         # box clicker
-        def isMouseWithinSpace(x, y, w, h):
-            if x < mouseX < x + w and y < mouseY < y + h:
-                return True
-            else:
-                return False
+ 
         if isMouseWithinSpace(TutorialBot.main_menu_x, TutorialBot.box_y, TutorialBot.box_width, TutorialBot.box_height):
             current_page = "Main_Menu"
             main_menu_load = False
@@ -169,7 +170,27 @@ def mousePressed():
         else:
             print("wrong!")
 
-
+    if current_page == "Timer" and timer_load == True:     
+        # Home menu button
+        if isMouseWithinSpace(100, 100, 200, 100):
+            current_page = "Main_Menu"
+            main_menu_load = False
+            timer_load = False
+        
+        # 10 minute timer button
+        if isMouseWithinSpace(630, 765, 200, 100) and Timer.step_count == 2:
+            Timer.time_left = 300000
+            Timer.time_left_2 = 300000
+            print("It worked")
+        
+        # 20 minute timer button
+        if isMouseWithinSpace(1090, 765, 200, 100) and Timer.step_count == 2:
+            Timer.time_left = 600000
+            Timer.time_left_2 = 600000
+            Timer.timer_start = True
+            print("It worked")
+            
+            
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    
         if ((x < mouseX < 400) and ( 360 <= mouseY <= 410)):

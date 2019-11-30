@@ -5,7 +5,7 @@ origin_colombia_active = False
 selected_dice = ""
 x = 0
 
-# Timer Functions
+# Timer Functions !!
 def isMouseWithinSpace2(x, y, w, h):
     if x < mouseX < x + w and y < mouseY < y + h:
         return True

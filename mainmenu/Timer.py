@@ -18,7 +18,8 @@ def setup():
     spatie = 1
     timer_start = False
     
-    time_left = 5 * 1000
+    time_left = 0 * 1000
+    added_time = 0
     last_millis = millis()
     running = False
     
@@ -37,13 +38,25 @@ def draw():
     rect(500, 300, 325, 100)
     rect(1090, 300, 325, 100)
     
+    # Menu button
+    fill(200)
+    rect(100, 100, 200, 100)
+    functions.drawText3("Main Menu", 200, 160, 0, 0, 0, 30)
+    
+    # Timer modes buttons
+    fill(200)
+    rect(630, 765, 200, 100) # 10 minutes
+    rect(1090, 765, 200, 100) # 20 minutes
+    functions.drawText3("10 Mins", 675, 830, 0, 0, 0, 30)
+    functions.drawText3("20 Mins", 1135, 830, 0, 0, 0, 30)
+    
     # User Input stuff   
     if step_count == 0:
-        functions.drawText3("Please input the name of Player 1", 950, 200, 0, 0, 0, 48)
+        functions.drawText3("Please input the name of Player 1", 580, 200, 0, 0, 0, 48)
     elif step_count == 1:
-        functions.drawText3("Please input the name of Player 2", 950, 200, 0, 0, 0, 48)
+        functions.drawText3("Please input the name of Player 2", 580, 200, 0, 0, 0, 48)
     elif step_count == 2:
-        functions.drawText3("Pick a time mode!", 950, 200, 0, 0, 0, 48)
+        functions.drawText3("Pick a time mode!", 770, 200, 0, 0, 0, 48)
 
     # Draws the user name on the screen.
     functions.drawText3(user_input_1, 530, 365, 0, 0, 0, 48)
@@ -55,16 +68,13 @@ def draw():
         if running:
             time_left = (time_left - (millis() - last_millis))
         else:
-            pass
-            
+            pass    
         if running_2:
             time_left_2 = (time_left_2 - (millis() - last_millis_2))
         else:
             pass    
-        
-        last_millis = millis()
-        last_millis_2 = millis()
-        
+        #last_millis = millis()
+        #last_millis_2 = millis()
         if time_left < 1000:
             running = False
             timer_start = False
@@ -73,9 +83,9 @@ def draw():
             running_2 = False
             timer_start = False
         
-        functions.drawText2(functions.convertSeconds(time_left), width*0.4, height/2, 0, 0, 0, 48)
-        functions.drawText2(functions.convertSeconds(time_left_2), width*0.6, height/2, 0, 0 ,0, 48)
+    last_millis = millis()
+    last_millis_2 = millis()
 
     # For testing purposes
-    functions.drawText2(functions.convertSeconds(time_left), width*0.4, height/2, 0, 0, 0, 48)
+    functions.drawText2(functions.convertSeconds(time_left), width*0.37, height/2, 0, 0, 0, 48)
     functions.drawText2(functions.convertSeconds(time_left_2), width*0.6, height/2, 0, 0 ,0, 48)
