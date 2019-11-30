@@ -6,17 +6,23 @@ selected_dice = ""
 x = 0
 
 # Timer Functions
+def isMouseWithinSpace2(x, y, w, h):
+    if x < mouseX < x + w and y < mouseY < y + h:
+        return True
+    else:
+        return False
+
 def fillZero(time):
     if len(str(time)) < 2:
         time = "0" + str(time)
-    return time
+    return time    
+    
 
 def convertSeconds(s):
     s = s / 1000
     minutes = s // 60
     seconds = s % 60
     return str(fillZero(minutes))+":"+str(fillZero(seconds))
-
 
 # Draws sexy text
 def drawText(word, x, y):
@@ -25,13 +31,20 @@ def drawText(word, x, y):
     text(word, x, y)
     textAlign(CENTER)
     
-def drawText2(word, x, y, r, g, b):
-    textSize(48)
+def drawText2(word, x, y, r, g, b, size):
+    textSize(size)
     #textFont(font)
     fill(r, g, b)
     text(word, x, y)
     textAlign(CENTER)
 
+def drawText3(word, x, y, r, g, b, size):
+    textSize(size)
+    #textFont(font)
+    fill(r, g, b)
+    text(word, x, y)
+    textAlign(LEFT)
+    
 # function to attack with dices
 def roll():
     white_dice = int(random(1,6))

@@ -98,7 +98,7 @@ def draw():
 def keyPressed():
     if current_page == "Timer" and timer_load == True:
         
-        
+        # "Spatie" functie in de timer
         if keyCode == 32 and Timer.timer_start == True:
             Timer.spatie = Timer.spatie + 1
             if Timer.running:
@@ -114,9 +114,35 @@ def keyPressed():
                 # Oneven getal, gaat de tweede keer af.
                 Timer.running_2 = not Timer.running_2
        
-        if keyCode == 10:
-            Timer.timer_start = not Timer.timer_start
+        # "Enter" functie tijdens het typen
+        if keyCode == 10 and Timer.typing == True and Timer.step_count < 2:
+            Timer.step_count += 1
             
+        if Timer.step_count == 0:
+            if keyCode == 8:
+                Timer.user_input_1 = Timer.user_input_1 [0:-1]
+            # De naam mag 10 characters lang zijn.
+            elif len(Timer.user_input_1) <= 10:
+                Timer.user_input_1 += key
+                testing_text = ("%r" % Timer.user_input_1)
+                print(testing_text)
+        
+        if Timer.step_count == 1:
+            if keyCode == 8:
+                Timer.user_input_2 = Timer.user_input_2 [0:-1]
+            # De naam mag 10 characters lang zijn.
+            elif len(Timer.user_input_2) <= 10:
+                Timer.user_input_2 += key
+            
+        # "Enter" functie in de timer /is tijdelijk.
+        if keyCode == 10 and Timer.typing == False:
+            Timer.timer_start = not Timer.timer_start
+
+    # TO exit the program!.
+    if keyCode == 27:
+        exit()
+    
+                    
 # mouseclcik registrater    
 def mousePressed():
     global box_width, box_height, box_x, box_y, current_page, main_menu_load, tutorial_load
@@ -142,7 +168,7 @@ def mousePressed():
             print("click4")
         else:
             print("wrong!")
-    
+
 
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    
