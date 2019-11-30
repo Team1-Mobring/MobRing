@@ -25,10 +25,10 @@ def drawText(word, x, y):
     text(word, x, y)
     textAlign(CENTER)
     
-def drawText2(word, x, y, color):
+def drawText2(word, x, y, r, g, b):
     textSize(48)
     #textFont(font)
-    fill(color)
+    fill(r, g, b)
     text(word, x, y)
     textAlign(CENTER)
 

@@ -97,8 +97,25 @@ def draw():
 # Timer spatie registratie
 def keyPressed():
     if current_page == "Timer" and timer_load == True:
-        if keyCode == 32:
-            Timer.running = not Timer.running
+        
+        
+        if keyCode == 32 and Timer.timer_start == True:
+            Timer.spatie = Timer.spatie + 1
+            if Timer.running:
+                Timer.running = not Timer.running
+            
+            if Timer.running_2:
+                Timer.running_2 = not Timer.running_2
+            
+            if Timer.spatie % 2 == 0:
+                # Even getal, gaat de eerste keer af.
+                Timer.running = not Timer.running
+            else:
+                # Oneven getal, gaat de tweede keer af.
+                Timer.running_2 = not Timer.running_2
+       
+        if keyCode == 10:
+            Timer.timer_start = not Timer.timer_start
             
 # mouseclcik registrater    
 def mousePressed():
