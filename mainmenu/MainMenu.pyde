@@ -140,6 +140,8 @@ def keyPressed():
         # "Enter" functie in de timer /is tijdelijk.
         if keyCode == 10 and Timer.step_count == 2:
             Timer.timer_start = not Timer.timer_start
+            Timer.running = True
+
 
     # TO exit the program!.
     if keyCode == 27:
@@ -188,20 +190,29 @@ def mousePressed():
             Timer.time_left_2 = 300000
             Timer.timer_start = False
             Timer.four_timer = False
+            Timer.time_mode_choosen = 1
+    
         
         # 20 minute timer button
         if isMouseWithinSpace(1090, 765, 200, 100) and Timer.step_count == 2:
-            Timer.time_left = 600000
-            Timer.time_left_2 = 600000
+            Timer.time_left = 6000
+            Timer.time_left_2 = 6000
             Timer.timer_start = False
             Timer.four_timer = False
+            Timer.time_mode_choosen = 1
             
         # 4 minute timer button
         if isMouseWithinSpace(860, 765, 200, 100) and Timer.step_count == 2:
             Timer.time_left = 120000
             Timer.time_left_2 = 120000
             Timer.timer_start = False
-            Timer.four_timer = True        
+            Timer.four_timer = True   
+            Timer.time_mode_choosen = 1 
+            
+        # Reset score button
+        if isMouseWithinSpace(910, 300, 100, 100) and Timer.step_count == 2:
+            Timer.score_player_1 = 0
+            Timer.score_player_2 = 0        
             
     if current_page == "Main_Menu" and main_menu_load == True:
             #mouse    

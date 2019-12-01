@@ -4,7 +4,7 @@ import time, functions
 def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
-            step_count, typing, four_timer, score_player_1, score_player_2
+            step_count, typing, four_timer, score_player_1, score_player_2, time_mode_choosen
     background(240)
     
     rect(100, 200, 100, 200)
@@ -32,10 +32,14 @@ def setup():
     score_player_1 = 0
     score_player_2 = 0
 
+    time_mode_choosen = 0
+    
 def draw():
 
     global time_left, last_millis, running, start_timer, time_left_2, last_millis_2, \
-            running_2, timer_start, user_input_1, user_input_2, step_count, score_player_1, score_player_2
+            running_2, timer_start, user_input_1, user_input_2, step_count, score_player_1, score_player_2, \
+            time_mode_choosen
+            
     background(240)
     
     fill(120, 134, 171)
@@ -47,6 +51,12 @@ def draw():
     fill(200)
     rect(100, 100, 200, 100)
     functions.drawText3("Main Menu", 200, 160, 0, 0, 0, 30)
+    
+    # Score reset button
+    fill(200)
+    rect(910, 300, 100, 100)
+    functions.drawText3("Reset\nScore", 923, 338, 0, 0, 0, 27)
+    
     
     # Timer modes buttons
     fill(200)
@@ -115,5 +125,6 @@ def draw():
     last_millis_2 = millis()
 
     # For testing purposes
-    functions.drawText2(functions.convertSeconds(time_left), width*0.37, height/2, 0, 0, 0, 48)
-    functions.drawText2(functions.convertSeconds(time_left_2), width*0.6, height/2, 0, 0 ,0, 48)
+    if time_mode_choosen == 1:
+        functions.drawText2(functions.convertSeconds(time_left), width*0.37, height/2, 0, 0, 0, 48)
+        functions.drawText2(functions.convertSeconds(time_left_2), width*0.6, height/2, 0, 0 ,0, 48)
