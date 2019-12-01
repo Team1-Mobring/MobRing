@@ -18,12 +18,18 @@ def fillZero(time):
     return time    
     
 
-def convertSeconds(s):
-    s = s / 1000
+def convertSeconds(m):
+    s = m / 1000
     minutes = s // 60
     seconds = s % 60
-    return str(fillZero(minutes))+":"+str(fillZero(seconds))
+    return str(fillZero(minutes))+":"+str(fillZero(seconds)) 
 
+def showMilliseconds(x):
+    if x == 0:
+        return "000"
+    else:
+        return x
+    
 # Draws sexy text
 def drawText(word, x, y):
     fill(255)

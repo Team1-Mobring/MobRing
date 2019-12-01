@@ -138,9 +138,9 @@ def keyPressed():
                 Timer.user_input_2 += key
             
         # "Enter" functie in de timer /is tijdelijk.
-        if keyCode == 10 and Timer.step_count == 2 and Timer.time_left > 1000 and Timer.time_left_2 > 1000:
+        if keyCode == 10 and Timer.step_count == 2 and Timer.time_left > 25 and Timer.time_left_2 > 25:
             Timer.timer_start = not Timer.timer_start
-            Timer.running = True
+            #Timer.running = True
 
 
     # TO exit the program!.

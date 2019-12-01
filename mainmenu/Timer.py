@@ -20,7 +20,7 @@ def setup():
     spatie = 1
     timer_start = False
     
-    time_left = 0 * 1000
+    time_left = 0 
     added_time = 0
     last_millis = millis()
     running = False
@@ -96,7 +96,7 @@ def draw():
         #last_millis_2 = millis()
         
         # Timer stopt zodra die onder 1 seconden komt.
-        if time_left < 1000:
+        if time_left < 25:
             #running = False
             timer_start = False
             
@@ -104,7 +104,7 @@ def draw():
                 score_player_2 += 1
             
     
-        if time_left_2 < 1000:
+        if time_left_2 < 25:
             #running_2 = False
             timer_start = False
             
@@ -128,7 +128,10 @@ def draw():
     last_millis = millis()
     last_millis_2 = millis()
 
-    # For testing purposes
+    # Draws the timer value
     if time_mode_choosen == 1:
         functions.drawText2(functions.convertSeconds(time_left), width*0.37, height/2, 0, 0, 0, 48)
+        functions.drawText2(str(functions.showMilliseconds(time_left % 1000)), 810, 560, 0, 0, 0, 20)
         functions.drawText2(functions.convertSeconds(time_left_2), width*0.6, height/2, 0, 0 ,0, 48)
+        functions.drawText2(str(functions.showMilliseconds(time_left_2 % 1000)), 1194, 560, 0, 0, 0, 20)
+        
