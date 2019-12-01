@@ -4,7 +4,7 @@ import time, functions
 def setup():
     global running, time_left, last_millis, start_timer, time_left_2, \
             last_millis_2, running_2, spatie, timer_start, user_input_1, user_input_2, \
-            step_count, typing, four_timer
+            step_count, typing, four_timer, score_player_1, score_player_2
     background(240)
     
     rect(100, 200, 100, 200)
@@ -29,14 +29,17 @@ def setup():
     last_millis_2 = millis()
     running_2 = False
     
+    score_player_1 = 0
+    score_player_2 = 0
 
 def draw():
 
     global time_left, last_millis, running, start_timer, time_left_2, last_millis_2, \
-            running_2, timer_start, user_input_1, user_input_2, step_count
+            running_2, timer_start, user_input_1, user_input_2, step_count, score_player_1, score_player_2
     background(240)
     
-    fill(23, 97, 97)
+    fill(120, 134, 171)
+    # Player name fiels
     rect(500, 300, 325, 100)
     rect(1090, 300, 325, 100)
     
@@ -56,16 +59,18 @@ def draw():
     
     # User Input stuff   
     if step_count == 0:
-        functions.drawText3("Please input the name of Player 1", 580, 200, 0, 0, 0, 48)
+        functions.drawText3("Please input the \nname of Player 1", 530, 200, 0, 0, 0, 35)
     elif step_count == 1:
-        functions.drawText3("Please input the name of Player 2", 580, 200, 0, 0, 0, 48)
-    elif step_count == 2:
+        functions.drawText3("Please input the \nname of Player 2", 1120, 200, 0, 0, 0, 35)
+    elif step_count == 2 and not timer_start:
         functions.drawText3("Pick a time mode!", 770, 200, 0, 0, 0, 48)
 
-    # Draws the user name on the screen.
+    # Draws the user name/score on the screen.
     functions.drawText3(user_input_1, 530, 365, 0, 0, 0, 48)
-    functions.drawText3(user_input_2, 1120, 295, 0, 0, 0, 48)
+    functions.drawText3(score_player_1, 835, 365, 0, 0, 0, 60)
     
+    functions.drawText3(user_input_2, 1120, 295, 0, 0, 0, 48)
+    functions.drawText3(score_player_2, 1055, 365, 0, 0, 0, 60)
     
     # Timer stuff
     if timer_start:
@@ -82,10 +87,17 @@ def draw():
         if time_left < 1000:
             running = False
             timer_start = False
+            if running:
+                score_player_2 += 1
+            
     
         if time_left_2 < 1000:
             running_2 = False
             timer_start = False
+            if running:
+                score_player_1 += 1
+            
+            
         fill(0, 100, 0)
         rect(860, 610, 200, 100) # Pauze knop!
         functions.drawText3("Switch!", 910, 670, 0, 0, 0, 30)
