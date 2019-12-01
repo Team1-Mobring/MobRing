@@ -94,17 +94,21 @@ def draw():
             pass    
         #last_millis = millis()
         #last_millis_2 = millis()
+        
+        # Timer stopt zodra die onder 1 seconden komt.
         if time_left < 1000:
-            running = False
+            #running = False
             timer_start = False
+            
             if running:
                 score_player_2 += 1
             
     
         if time_left_2 < 1000:
-            running_2 = False
+            #running_2 = False
             timer_start = False
-            if running:
+            
+            if running_2:
                 score_player_1 += 1
             
             
@@ -112,7 +116,7 @@ def draw():
         rect(860, 610, 200, 100) # Pauze knop!
         functions.drawText3("Switch!", 910, 670, 0, 0, 0, 30)
         functions.drawText3("'Spacebar'", 910, 690, 0, 0, 0, 20)
-        functions.drawText3("Press 'Enter' to pause", 860, 730, 0, 0, 0, 20)
+        functions.drawText3("Press 'Enter' to pause", 865, 730, 0, 0, 0, 20)
             
     # Voor de pauze knop "Enter"       
     elif step_count == 2:
