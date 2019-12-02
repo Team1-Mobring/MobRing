@@ -1,3 +1,5 @@
+import Cards
+
 main_menu_x = 70
 fed_x = 495
 maffia_x = 1125
@@ -10,7 +12,7 @@ box_x = 0
 def setup():
     size(1920, 1080)
     background(255)
-    
+    Cards.test_card.display()
 def draw():
     fill(180)
     main_menu = rect(main_menu_x, box_y, box_width, box_height)
