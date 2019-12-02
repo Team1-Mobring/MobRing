@@ -16,7 +16,7 @@ timer_load = False
 handleiding_load = False
 
 def setup():
-    size(1920, 1080)
+    fullScreen()
     #size(600, 700)
     global f
     f = createFont('arial',32)
