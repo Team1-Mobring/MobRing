@@ -28,7 +28,6 @@ class TrapJob():
     def __init__(self, type, name, hp1, hp2, effect, img):
         self.type = type
         self.name = name
-        self.origin = origin
         self.hp1 = hp1
         self.hp2 = hp2
         self.effect = effect
@@ -65,7 +64,7 @@ farmer4 = Mobster("Mobster", "Farmer4", "Netherlands", 0, 11, 0, "Farmer4.jpg")
 fsb1 = Mobster("Mobster", "FSB1", "Russia", 7, 8, 8, "FSB1.jpg")
 fsb2 = Mobster("Mobster", "FSB2", "Russia", 0, 9, 9, "FSB2.jpg")
 fsb3 = Mobster("Mobster", "FSB3", "Russia", 0, 9, 10, "FSB3.jpg")
-fsb4 = Mobster("Mobster", "FSB4", "Russia" 0, 10, 10, "FSB4.jpg")
+fsb4 = Mobster("Mobster", "FSB4", "Russia", 0, 10, 10, "FSB4.jpg")
 CaliKartel1 = Mobster("Mobster", "CaliKartel1", "Colombia", 5, 6, 6, "KaliKartel1.jpg")
 CaliKartel2 = Mobster("Mobster", "CaliKartel2", "Colombia", 0, 9, 5, "KaliKartel2.jpg")
 CaliKartel3 = Mobster("Mobster", "CaliKartel3", "Colombia", 0, 4, 10, "KaliKartel3.jpg")
@@ -77,7 +76,7 @@ mss4 = Mobster("Mobster", "MSS4", "China", 0, 3, 0, "MSS4.jpg")
 psia1 = Mobster("Mobster", "PSIA1", "Japan", 8, 6, 7, "PSIA1.jpg")
 psia2 = Mobster("Mobster", "PSIA2", "Japan", 8, 6, 9, "PSIA2.jpg")
 psia3 = Mobster("Mobster", "PSIA3", "Japan", 7, 7, 7, "PSIA3.jpg")
-psia4 = Mobster("Mobster", "PSIA4", "Japan" 0, 3, 0, "PSIA4.jpg")
+psia4 = Mobster("Mobster", "PSIA4", "Japan", 0, 3, 0, "PSIA4.jpg")
 sismi1 = Mobster("Mobster", "SISMI1", "Italy", 7, 6, 9, "SISMI1.jpg")
 sismi2 = Mobster("Mobster", "SISMI2", "Italy", 0, 5, 4, "SISMI2.jpg")
 sismi3 = Mobster("Mobster", "SISMI3", "Italy", 0, 10, 9, "SISMI3.jpg")
@@ -93,7 +92,7 @@ yakuza4 = Mobster("Mobster", "Yakuza4", "Japan", 0, 3, 0, "Yakuza4.jpg")
 
 #origins
 origin_China_Red = Origin("Origin", "Origin_China_Red", "OriginChina.jpg")
-0rigin_China_Blue  = Origin("Origin", "Origin_China_Blue", "OriginChinaFED.jpg")
+origin_China_Blue  = Origin("Origin", "Origin_China_Blue", "OriginChinaFED.jpg")
 origin_Japan_Red = Origin("Origin", "Origin_Japan_Red", "OriginJapan.jpg")
 origin_Japan_Blue = Origin("Origin", "Origin_Japan_Blue", "OriginJapanFED.jpg")
 origin_Colombia_Red = Origin("Origin", "Origin_Colombia_Red", "OriginColombia.jpg")
